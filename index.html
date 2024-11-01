@@ -3,61 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-
     <title>Frontend Mentor | Contact form</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form action="">
+    <form id="contactForm">
       <h1>Contact Us</h1>
       <div class="fullname">
         <div class="fname">
-          <label for="fname">First Name <b>*</b></label
-          ><input type="text" />
+          <label for="fname">First Name <b>*</b></label>
+          <input type="text" id="fname" required />
         </div>
         <div class="lname">
-          <label for="lname">Last Name <b>*</b></label
-          ><input type="text" />
+          <label for="lname">Last Name <b>*</b></label>
+          <input type="text" id="lname" required />
         </div>
       </div>
       <div class="email">
-        <label for="email">Email Addresses<b>*</b></label
-        ><input type="email" />
+        <label for="email">Email Address <b>*</b></label>
+        <input type="email" id="email" required />
       </div>
       <div class="querytype">
         <h4>Query Type</h4>
-        <span>
-          <div class="generalenquiry">
-            <input type="radio" />
-            <label for="generalenquiry"> General Inquiry </label>
+        <span
+          ><div class="generalenquiry">
+            <input type="radio" id="generalenquiry" name="query" required />
+            <label for="generalenquiry">General Inquiry</label>
           </div>
           <div class="supportrequest">
-            <input type="radio" />
+            <input type="radio" id="supportrequest" name="query" required />
             <label for="supportrequest">Support Request</label>
-          </div>
-        </span>
+          </div></span
+        >
       </div>
       <div class="msg">
         <label for="msg">Message <b>*</b></label>
-        <textarea name="" id=""></textarea>
+        <textarea id="msg" required></textarea>
       </div>
       <div class="consent">
-        <input type="checkbox" name="" id="" />
+        <input type="checkbox" id="consent" required />
         <label for="consent"
           >I consent to being contacted by the team <b>*</b></label
         >
       </div>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission for demo purposes
+          const fname = document.getElementById("fname").value;
+          const lname = document.getElementById("lname").value;
+          const email = document.getElementById("email").value;
+          const msg = document.getElementById("msg").value;
+          const consent = document.getElementById("consent").checked;
+          const query = document.querySelector('input[name="query"]:checked');
+
+          if (fname && lname && email && msg && consent && query) {
+            alert(
+              "Message Sent! \nThanks for completing the form. We'll be in touch soon!"
+            );
+          }
+        });
+    </script>
   </body>
 </html>

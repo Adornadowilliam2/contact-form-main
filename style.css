@@ -78,6 +78,10 @@ form h1 {
   outline: 1px solid black;
   padding: 5px;
   border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 textarea {
@@ -117,7 +121,7 @@ b {
   }
 
   form {
-    width: 200px;
+    width: auto;
     margin: 10px;
   }
   .querytype span {
