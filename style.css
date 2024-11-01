@@ -18,16 +18,23 @@
   --color-swamp: #304041;
   --base-white: #ffffff;
 }
+@font-face {
+  font-family: "Karla-Italic-VariableFont_wght";
+  src: url("assets/fonts/Karla-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   background: var(--primary-bg);
   height: 100vh;
 
-  font-family: sans-serif;
+  font-family: "Karla-Italic-VariableFont_wght", sans-serif;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 form {
@@ -55,12 +62,34 @@ form h1 {
   margin-top: 10px;
 }
 
+input {
+  cursor: pointer;
+  font-size: 10px;
+  border: 1px solid var(--color-swamp);
+}
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+  padding: 20px;
+}
+input[type="text"],
+input[type="email"] {
+  transition: border 0.3s ease;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover {
+  border: 2px solid var(--color-teal);
+}
+
 .fullname input,
 .email input {
   width: 100%;
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid black;
+}
+
+input[type="radio"] {
+  accent-color: var(--color-teal);
 }
 
 .querytype h4 {
@@ -75,7 +104,7 @@ form h1 {
 }
 
 .querytype div {
-  outline: 1px solid black;
+  outline: 1px solid var(--color-swamp);
   padding: 5px;
   border-radius: 5px;
 
@@ -89,10 +118,23 @@ textarea {
   border-radius: 5px;
   height: 10vh;
   margin-top: 10px;
+  padding: 10px;
+  font-size: 10px;
+  transition: border 0.3s ease;
+}
+
+textarea:hover,
+textarea:focus,
+textarea:active {
+  border: 2px solid var(--color-teal);
 }
 
 .msg {
   margin: 10px 0 10px 0;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--color-teal);
 }
 
 button {
@@ -102,19 +144,40 @@ button {
   padding: 10px;
   border: none;
   border-radius: 5px;
+  font-size: 10px;
 }
-
+input:not(:placeholder-shown) {
+  border-color: var(--color-teal);
+}
 b {
   color: var(--color-teal);
 }
 .consent {
   margin: 20px 0 20px 0;
-
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+label,
+h4 {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+.message {
+  background: var(--color-swamp);
+  color: var(--base-white);
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 10;
+  margin-bottom: 2.8rem;
+  display: none;
+}
+.message p {
+  font-size: 13px;
+}
 @media (max-width: 720px) {
   .fullname {
     display: block;
